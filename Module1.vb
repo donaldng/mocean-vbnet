@@ -4,41 +4,6 @@ Imports System.Xml
 Imports System.Text
 Imports ConsoleApplication1.MoceanNamespace
 
-Module Module1
-    Sub Main()
-        Dim res As Hashtable
-        Dim MoceanClass As MoceanSMSClass = New MoceanSMSClass()
-
-        ' SEND SMS
-        res = MoceanClass.SendSMS("mocean-api-key", "mocean-api-secret", "mocean-from", "mocean-to", "Hello! How are you?")
-
-        ' CHECK BALANCE
-        res = MoceanClass.CheckMoceanBalance("mocean-api-key", "mocean-api-secret")
-        'Console.WriteLine("status = " + res("status"))
-        'Console.WriteLine("value = " + res("value"))
-
-        ' CHECK PRICING
-        res = MoceanClass.MoceanAccountPricing("mocean-api-key", "mocean-api-secret")
-        'Returned result
-        'Console.WriteLine("country = " + res("country"))
-        'Console.WriteLine("operator = " + res("operator"))
-        'Console.WriteLine("mcc = " + res("mcc"))
-        'Console.WriteLine("mnc = " + res("mnc"))
-        'Console.WriteLine("price = " + res("price"))
-
-        ' MESSAGE STATUS
-        res = MoceanClass.MoceanMessageStatus("mocean-api-key", "mocean-api-secret", "mocean-msgid")
-
-        'Display all returned results
-        For Each i In res
-            Console.WriteLine(i.key + "=" + i.value)
-        Next
-
-        Console.WriteLine("Please Press any key to continue!")
-        Console.ReadKey()
-
-    End Sub
-End Module
 Namespace MoceanNamespace
     Public Class MoceanSMSClass
         Public Function SendSMS(ByVal mocean_api_key As String, ByVal mocean_api_secret As String,
